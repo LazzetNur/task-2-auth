@@ -1,4 +1,4 @@
-import { Service, readPost } from '../../service';
+import { Service, readPost, result } from '../../service';
 
 export class Home {
   render() {
@@ -12,27 +12,14 @@ export class Home {
     <a href="#" class="links" id="logout">🔴 Выход</a>
   </header>
   <div class="logo"><h1>Лента постов</h1></div>
-    <div class="posts">
-      <div class="post">
-        <span class="user">@user</span>
-        <span class="date">date</span>
-        <div class="content">
-          <p>content</p>
-        </div>
-      </div>
-      <div class="post">
-        <span class="user">@user</span>
-        <span class="date">date</span>
-        <div class="content">
-          <p>content</p>
-        </div>
-      </div>
+  <button class="btn" type="submit" id="buttontemp" class="btnposting" >Показать</button>
+    <div class="posts" id = "posts">
     </div>
     `;
     return node;
   }
 }
-export function links() {
+export async function links() {
   const homepage = document.getElementById('homepage');
   homepage.onclick = () => {
     document.location.replace('/');
@@ -48,4 +35,32 @@ export function links() {
     let token = sessionStorage.getItem('access_token')
     !token ? document.location.replace('/login') : false;
   }; 
+  const buttontemp = document.getElementById('buttontemp');
+  buttontemp.onclick= async()=>{
+  const result = await readPost();
+  for(let i = result.length-1; i>=0; i--){
+    const owner_name = result[i].owner_name;
+    const title = result[i].title;
+    const description = result[i].description;
+    const posts = document.getElementById("posts");
+  
+    const post = document.createElement("div");
+    const user = document.createElement("span");
+    const content = document.createElement("div");
+    const contentp = document.createElement("p");
+    const post_title = document.createElement("span");
+    post.classList.add("post");
+    user.classList.add("user");
+    content.classList.add("content");
+    post_title.classList.add("date");
+    contentp.textContent = description;
+    post_title.textContent = title;
+    user.textContent = owner_name;
+    post.appendChild(user);
+    post.appendChild(content);
+    content.appendChild(contentp);
+    post.appendChild(post_title);
+    posts.appendChild(post);
+  }
+  }
 }

@@ -19,7 +19,6 @@ export class Post {
       <input type="text" class="inputpost" id = "description" placeholder="content" />
       <button class="btn" type="submit" class="btnpost">Добавить</button>
     </form>
-      <button class="btn" type="submit" id="buttontemp" class="btnposting">Добавить</button>
       </div>
   </div>
     `;
@@ -27,11 +26,7 @@ export class Post {
   }
 }
 export function create() {
-
-  const buttontemp = document.getElementById('buttontemp');
   form.addEventListener('submit', postSubmit);
-  buttontemp.onclick=temp;
-  // buttontemp.addEventListener('submit', temp);
 }
 async function postSubmit(e) {
   e.preventDefault();
@@ -43,8 +38,4 @@ async function postSubmit(e) {
   };
   console.log(data);
   createPost(data);
-}
-async function temp(e){
-  e.preventDefault();
-  await readPost();
 }

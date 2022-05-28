@@ -4,7 +4,6 @@ import Error500 from './pages/500';
 import { Registration, validRegister } from './pages/registration/index.js';
 import { links, Home } from './pages/home';
 import { Post, create } from './pages/post';
-import { readPost } from './service/index.js';
 
 const routes = [
   {

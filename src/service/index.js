@@ -53,18 +53,9 @@ export async function createPost(data) {
   console.log(post);
 }
 
-export async function readPost() {
-  let params = {
-    "skip": 0, 
-    "limit": 15
-  };
-  let query = Object.keys(params)
-             .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
-             .join('&');
-
-let url = 'http://10.130.19.30/api/items/?' + query;
+export async function readPost(data) {
   let token = sessionStorage.getItem("access_token");
-  let res = await fetch('url', {
+  let res = await fetch('http://10.130.19.30/api/items/?skip=0&limit=15', {
     method: 'GET',
     headers: {
       Accept: 'application/json',
@@ -72,9 +63,6 @@ let url = 'http://10.130.19.30/api/items/?' + query;
       Authorization : `Bearer ${token}`,
     },
   });
-  if (res.statusText === 'OK') {
-   const result = await res.json();
-  //  let data = result[0].description;
-  }
-  console.log(json[0]);
+  const result = await res.json();
+  return result;
 }
