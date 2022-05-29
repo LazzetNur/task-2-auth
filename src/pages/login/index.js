@@ -28,12 +28,17 @@ export class Login {
         <button id="abtn" class="btn" type="submit">Войти</button><br />
         <a href="#" id = "registernow">Нет аккаунта? Регистрация</a>
       </form>
+
     `;
     return node;
   }
 }
 
 export function validLogin() {
+  if(sessionStorage.length > 0){
+    document.location.replace("/");
+  }
+
   const form = document.getElementById('form');
   const username = document.getElementById('username');
   const password = document.getElementById('password');

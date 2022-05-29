@@ -1,4 +1,4 @@
-import { Service, readPost, result } from '../../service';
+import { Service, readPost} from '../../service';
 
 export class Home {
   render() {
@@ -20,6 +20,9 @@ export class Home {
   }
 }
 export async function links() {
+  if(sessionStorage.length === 0){
+    document.location.replace("/login");
+  }
   const homepage = document.getElementById('homepage');
   homepage.onclick = () => {
     document.location.replace('/');
@@ -32,8 +35,9 @@ export async function links() {
   const logout = document.getElementById('logout');
   logout.onclick = () => {
     sessionStorage.removeItem('access_token');
-    let token = sessionStorage.getItem('access_token')
-    !token ? document.location.replace('/login') : false;
+    document.location.replace('/login');
+    
+ 
   }; 
   const buttontemp = document.getElementById('buttontemp');
   buttontemp.onclick= async()=>{

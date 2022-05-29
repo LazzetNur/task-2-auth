@@ -74,5 +74,10 @@ const router = async () => {
   }
 };
 window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  setTimeout(() => {
+  AmagiLoader.hide();
+  loader.hidden=true;
   router();
+}, 1000);
 });
