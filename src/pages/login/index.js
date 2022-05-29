@@ -1,4 +1,4 @@
-import { Service, fetchLogin } from '../../service';
+import { fetchLogin } from '../../service';
 export class Login {
   render() {
     const node = document.createElement('div');
@@ -35,8 +35,8 @@ export class Login {
 }
 
 export function validLogin() {
-  if(sessionStorage.length > 0){
-    document.location.replace("/");
+  if (sessionStorage.length > 0){
+    document.location.replace('/');
   }
 
   const form = document.getElementById('form');
@@ -80,7 +80,10 @@ export function validLogin() {
 }
 async function loginSubmit(e) {
   e.preventDefault();
-  const data = { username: username.value, password: password.value };
+  const data = {
+    username: username.value,
+    password: password.value 
+  };
   await fetchLogin(data);
   // let token = sessionStorage.getItem(access_token);
 }

@@ -5,15 +5,15 @@ export class Home {
     const node = document.createElement('div');
     node.classList.add('body');
     node.innerHTML = `
-    <header class="header">
-    <span class="links">👍 Best MVP</span>
-    <a href="#" class="links" id="homepage">🚀 Главная</a>
-    <a href="#" class="links" id="addpost">✅ Добавить пост</a>
-    <a href="#" class="links" id="logout">🔴 Выход</a>
+    <header class='header'>
+    <span class='links'>👍 Best MVP</span>
+    <a href='#' class='links' id='homepage'>🚀 Главная</a>
+    <a href='#' class='links' id='addpost'>✅ Добавить пост</a>
+    <a href='#' class='links' id='logout'>🔴 Выход</a>
   </header>
-  <div class="logo"><h1>Лента постов</h1></div>
-  <button class="btn" type="submit" id="buttontemp" class="btnposting" >Показать</button>
-    <div class="posts" id = "posts">
+  <div class='logo'><h1>Лента постов</h1></div>
+  <button class='btn' type='submit' id='buttontemp' class='btnposting' >Показать</button>
+    <div class='posts' id = 'posts'>
     </div>
     `;
     return node;
@@ -21,12 +21,12 @@ export class Home {
 }
 export async function links() {
   if(sessionStorage.length === 0){
-    document.location.replace("/login");
+    document.location.replace('/login');
   }
   const homepage = document.getElementById('homepage');
   homepage.onclick = () => {
     document.location.replace('/');
-    await readPost();
+    readPost();
   };
   const addpost = document.getElementById('addpost');
   addpost.onclick = () => {
@@ -46,17 +46,17 @@ export async function links() {
     const owner_name = result[i].owner_name;
     const title = result[i].title;
     const description = result[i].description;
-    const posts = document.getElementById("posts");
+    const posts = document.getElementById('posts');
   
-    const post = document.createElement("div");
-    const user = document.createElement("span");
-    const content = document.createElement("div");
-    const contentp = document.createElement("p");
-    const post_title = document.createElement("span");
-    post.classList.add("post");
-    user.classList.add("user");
-    content.classList.add("content");
-    post_title.classList.add("date");
+    const post = document.createElement('div');
+    const user = document.createElement('span');
+    const content = document.createElement('div');
+    const contentp = document.createElement('p');
+    const post_title = document.createElement('span');
+    post.classList.add('post');
+    user.classList.add('user');
+    content.classList.add('content');
+    post_title.classList.add('date');
     contentp.textContent = description;
     post_title.textContent = title;
     user.textContent = owner_name;

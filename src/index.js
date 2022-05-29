@@ -30,12 +30,10 @@ const routes = [
     path: '/post',
     view: Post,
   },
-
-  //...
 ];
 
 const router = async () => {
-  let isMatch = routes.map((route) => {
+  const isMatch = routes.map((route) => {
     return {
       route,
       isMatch: route.path === location.pathname,
@@ -49,7 +47,7 @@ const router = async () => {
       isMatch: true,
     };
   }
-  let matchedView = match.route.view;
+  const matchedView = match.route.view;
 
   document
     .querySelector('#app')
@@ -64,10 +62,6 @@ const router = async () => {
   if (location.pathname === '/') {
     links();
   }
-
-  if (location.pathname === '/registration') {
-    validRegister();
-  }
   if (location.pathname === '/post') {
     create();
     links();
@@ -76,8 +70,8 @@ const router = async () => {
 window.addEventListener('load', () => {
   const loader = document.getElementById('loader');
   setTimeout(() => {
-  AmagiLoader.hide();
-  loader.hidden=true;
-  router();
-}, 1000);
+    AmagiLoader.hide();
+    loader.hidden = true;
+    router();
+  }, 1000);
 });

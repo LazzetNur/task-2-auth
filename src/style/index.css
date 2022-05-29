@@ -140,7 +140,7 @@ a {
 .create {
   box-sizing: border-box;
   width: 834px;
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #d3d3d3;
   border-radius: 20px;
 }
@@ -150,8 +150,8 @@ a {
   box-sizing: border-box;
   width: 739px;
   height: 200px;
-  background: #ffffff;
-  border: 1px solid #000000;
+  background: #fff;
+  border: 1px solid #000;
   border-radius: 3px;
   padding: 10px;
 }
@@ -169,7 +169,7 @@ a {
   font-size: 14px;
   line-height: 16px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   border-color: #f9f9f9;
 }
 
@@ -180,6 +180,7 @@ a {
   font-weight: 500;
   font-size: 16px;
 }
+
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
@@ -190,6 +191,11 @@ a {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

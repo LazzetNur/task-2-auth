@@ -1,4 +1,4 @@
-import { createPost, readPost, Service } from '../../service';
+import { createPost } from '../../service';
 export class Post {
   render() {
     const node = document.createElement('div');
@@ -16,7 +16,8 @@ export class Post {
     <div class="post">
     <form id="form" class="form" name="post">
       <input type="text" class="inputpost" id = "title" placeholder="title" />
-      <input type="text" class="inputpost" id = "description" placeholder="content" />
+      <input type="text" class="inputpost" id = "description" 
+      placeholder="content" />
       <button class="btn" type="submit" class="btnpost">Добавить</button>
     </form>
       </div>

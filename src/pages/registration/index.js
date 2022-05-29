@@ -1,4 +1,4 @@
-import { fetchRegister, Service } from '../../service';
+import { fetchRegister } from '../../service';
 
 export class Registration {
   render() {
@@ -25,16 +25,16 @@ export class Registration {
           placeholder="Логин"
         /><br /><span id="error" hidden>invalid login!</span><br />
         <input
-          id="first_name"
+          id="firstname"
           class="input"
-          name="first_name"
+          name="firstname"
           type="text"
           placeholder="Имя"
         /><br /><span id="errorname" hidden>invalid name!</span><br />
         <input
-          id="last_name"
+          id="lastname"
           class="input"
-          name="last_name"
+          name="lastname"
           type="text"
           placeholder="Фамилия"
         /><br />
@@ -82,8 +82,8 @@ export class Registration {
 export function validRegister() {
   const email = document.getElementById('email');
   const username = document.getElementById('username');
-  const first_name = document.getElementById('first_name');
-  const last_name = document.getElementById('last_name');
+  const firstname = document.getElementById('firstname');
+  const lastname = document.getElementById('lastname');
   const telephone = document.getElementById('telephone');
   const password = document.getElementById('password');
   const password2 = document.getElementById('password2');
@@ -98,8 +98,8 @@ export function validRegister() {
 
   email.onblur = onbluremail;
   username.onblur = onblurlogin;
-  first_name.onblur = onblurname;
-  last_name.onblur = onblursurname;
+  firstname.onblur = onblurname;
+  lastname.onblur = onblursurname;
   telephone.onblur = onblurphone;
   password.onblur = onblurpass;
   password2.onblur = onblurpass2;
@@ -121,7 +121,7 @@ export function validRegister() {
     }
   }
   function onblurname() {
-    if (!regName.test(first_name.value)) {
+    if (!regName.test(firstname.value)) {
       errorname.classList.add('invalid');
       document.getElementById('errorname').hidden = false;
     } else {
@@ -129,7 +129,7 @@ export function validRegister() {
     }
   }
   function onblursurname() {
-    if (!regName.test(last_name.value)) {
+    if (!regName.test(lastname.value)) {
       errorsurname.classList.add('invalid');
       document.getElementById('errorsurname').hidden = false;
     } else {
@@ -175,8 +175,8 @@ async function registerSubmit(e) {
   const data = {
     email: email.value,
     username: username.value,
-    first_name: first_name.value,
-    last_name: last_name.value,
+    first_name: firstname.value,
+    last_name: lastname.value,
     telephone: telephone.value,
     password: password.value,
   };
